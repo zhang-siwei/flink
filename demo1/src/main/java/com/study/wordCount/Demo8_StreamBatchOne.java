@@ -20,6 +20,7 @@ import org.apache.flink.util.Collector;
  */
 public class Demo8_StreamBatchOne {
     public static void main(String[] args) throws Exception {
+        System.out.println("hihihihihi=============================================");
         StreamExecutionEnvironment executionEnvironment = StreamExecutionEnvironment.getExecutionEnvironment();
         /* setRuntimeMode 设置运行模式:
             STREAMING,(默认),
