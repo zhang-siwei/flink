@@ -54,8 +54,8 @@ public class Demo5_JDBCSink {
                 }, JdbcExecutionOptions.builder()
                         .withBatchSize(200).withBatchIntervalMs(500)
                         .withMaxRetries(3).build(),
-                new JdbcConnectionOptions.
-                        JdbcConnectionOptionsBuilder()
+                new JdbcConnectionOptions
+                        .JdbcConnectionOptionsBuilder()
                         .withUrl("jdbc:clickhouse://hadoop102:8123/default")
                         .build()
         );
