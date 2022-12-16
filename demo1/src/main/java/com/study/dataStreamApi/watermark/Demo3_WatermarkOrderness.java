@@ -21,7 +21,7 @@ import java.util.List;
 /**
  * @author zhang.siwei
  * @time 2022-12-16 19:54
- * @action
+ * @action  处理数据乱序
  *  * 水印策略:
  *  *          WatermarkStrategy<T> forMonotonousTimestamps() : 用于产生连续(不容忍乱序)的水印.
  *  *                          默认选 事件时间属性 - 1 作为水印

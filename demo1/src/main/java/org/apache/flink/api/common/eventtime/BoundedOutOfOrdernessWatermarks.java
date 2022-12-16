@@ -84,7 +84,7 @@ public class BoundedOutOfOrdernessWatermarks<T> implements WatermarkGenerator<T>
     public void onPeriodicEmit(WatermarkOutput output) {
 
         Watermark watermark = new Watermark(maxTimestamp - outOfOrdernessMillis - 1);
-         //System.out.println(Thread.currentThread().getName() +"当前向下游发送水印:"+watermark.getTimestamp());
+//         System.out.println(Thread.currentThread().getName() +"当前向下游发送水印:"+watermark.getTimestamp());
         output.emitWatermark(watermark);
     }
 }
