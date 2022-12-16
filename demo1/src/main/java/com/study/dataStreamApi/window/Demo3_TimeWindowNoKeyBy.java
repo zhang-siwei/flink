@@ -15,16 +15,16 @@ import org.apache.flink.util.Collector;
  * @time 2022-12-15 19:30
  * @action 基于时间的
  * 按照性质：基于时间
- * api: Window
- * size： 由时间范围决定 [start,end)
- * slide： 到点(end)就算。
- * flink怎么知道时间是多少?
- * processingTime(演示):  处理时间。参考计算机的物理时钟！
- * eventTime:   从数据中提取属性作为时间。
+ *     api: Window
+ *             size： 由时间范围决定 [start,end)rt,end)
+ *             slide： 到点(end)就算。
+ *           flink怎么知道时间是多少?
+ *                 processingTime(演示):  处理时间。参考计算机的物理时钟:  处理时间。参考计算机的物理时钟！
+ *                 eventTime:   从数据中提取属性作为时间。取属性作为时间。
  * 按照计算方式： 不keyBy
- * xxxAll
+ *                 xxxAll
  * 按照功能:
- * 滑动|滚动|会话
+ *         滑动|滚动|会话
  */
 public class Demo3_TimeWindowNoKeyBy {
     public static void main(String[] args) {
