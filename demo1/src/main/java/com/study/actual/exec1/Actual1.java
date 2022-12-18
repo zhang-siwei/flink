@@ -1,4 +1,4 @@
-package com.study.actual;
+package com.study.actual.exec1;
 
 import com.study.actual.function.UserBehaviorMapFun;
 import com.study.actual.pojo.UserBehavior;

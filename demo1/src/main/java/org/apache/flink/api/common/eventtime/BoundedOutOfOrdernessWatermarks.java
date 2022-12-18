@@ -71,10 +71,10 @@ public class BoundedOutOfOrdernessWatermarks<T> implements WatermarkGenerator<T>
     public void onEvent(T event, long eventTimestamp, WatermarkOutput output) {
         //保证时间不会回退
         maxTimestamp = Math.max(maxTimestamp, eventTimestamp);
-        System.out.println(event +"来了,更新maxTimestamp:"+maxTimestamp);
+//        System.out.println(event +"来了,更新maxTimestamp:"+maxTimestamp);
 
         Watermark watermark = new Watermark(maxTimestamp - outOfOrdernessMillis - 1);
-        System.out.println("当前向下游发送水印:"+watermark.getTimestamp());
+//        System.out.println("当前向下游发送水印:"+watermark.getTimestamp());
 
         output.emitWatermark(watermark);
     }

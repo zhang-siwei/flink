@@ -13,8 +13,13 @@ import java.util.List;
  * @action
  */
 public class MyUtil {
-    private static SimpleDateFormat simpleDateFormat =new SimpleDateFormat("yyyy-mm-dd HH:mm:ss");
+    private static SimpleDateFormat simpleDateFormat =new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
+    public static String getTimeWindow(TimeWindow t){
+        return "["+simpleDateFormat.format(new Date(t.getStart()))
+                +" , "+
+                simpleDateFormat.format(new Date(t.getEnd()))+"]";
+    }
     public static void printTimeWindow(TimeWindow t) {
         System.out.println(
                 simpleDateFormat.format(new Date(t.getStart()))

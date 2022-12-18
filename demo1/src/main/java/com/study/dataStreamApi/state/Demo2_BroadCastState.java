@@ -30,10 +30,10 @@ public class Demo2_BroadCastState {
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
         env.setParallelism(2);
         //获取数据流
-        SingleOutputStreamOperator<WaterSensor> dataDs = env.socketTextStream("localhost", 8888)
+        SingleOutputStreamOperator<WaterSensor> dataDs = env.socketTextStream("hadoop102", 8888)
                 .map(new WaterSensorMapFunction());
         //获取配置流
-        SingleOutputStreamOperator<myConf> confDs = env.socketTextStream("localhost", 8889)
+        SingleOutputStreamOperator<myConf> confDs = env.socketTextStream("hadoop102", 8889)
                 .map(new MapFunction<String, myConf>() {
                     @Override
                     public myConf map(String s) throws Exception {
