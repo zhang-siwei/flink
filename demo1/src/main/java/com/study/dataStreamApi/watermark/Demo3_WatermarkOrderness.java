@@ -70,7 +70,7 @@ public class Demo3_WatermarkOrderness {
                         return waterSensor.getTs();
                     }
                 });
-        SingleOutputStreamOperator<String> ds = env.socketTextStream("hadoop102", 8888)
+        SingleOutputStreamOperator<String> ds = env.socketTextStream("localhost", 8888)
                 .map(new WaterSensorMapFunction())
                 .assignTimestampsAndWatermarks(watermarkStrategy)
                 //基于EventTime的开窗运算
