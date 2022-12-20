@@ -19,7 +19,7 @@ import java.util.Properties;
 /**
  * @author zhang.siwei
  * @time 2022-12-14 16:13
- * @action 不带key的 kafka sink
+ * @action 不带key的 kafka sink  ,FlinkKafkaProducer
  *
  * key仅仅用于分区！
  *         key相同的，一定写入到kafka的同一个分区！
@@ -45,7 +45,9 @@ public class Demo3_KafkaSinkWithKey {
         FlinkKafkaProducer<WaterSensor> kafkaProducer = new FlinkKafkaProducer<>("", new KafkaSerializationSchema<WaterSensor>() {
             @Override
             public ProducerRecord<byte[], byte[]> serialize(WaterSensor waterSensor, @Nullable Long aLong) {
+                //key: 取 id。同一种类型的传感器在kafka的一个分区
                 byte[] key = waterSensor.getId().getBytes(StandardCharsets.UTF_8);
+                //为了在外部软件中查看方便，将WaterSensor先转为String，再转为byte[]
                 byte[] value = JSON.toJSONString(waterSensor).getBytes(StandardCharsets.UTF_8);
                 ProducerRecord<byte[], byte[]> producerRecord = new ProducerRecord<>("topicC", key, value);
                 return producerRecord;
